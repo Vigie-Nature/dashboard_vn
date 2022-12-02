@@ -1,0 +1,100 @@
+---
+title: "Statistiques globales Vigie-Nature École"
+---
+
+```{r setup, include=FALSE} 
+knitr::opts_chunk$set(warning = FALSE, message = FALSE, echo = FALSE) 
+```
+
+```{r import data}
+#import functions
+source("fonctions/functions_calcul_VN.R")
+# import data
+data_participation <- data.table::fread("data/vne_participation.csv")
+```
+
+
+## Nombre total participants : `r stats_globales(data_participation, compter = "classes")`
+
+## Nombre total de participations : `r stats_globales(data_participation, compter = "observations")`
+
+## Nombre de nouveau users
+
+## variation temporelle participants
+
+Attention, cette représentation ne prend pas en compte les classes chiro
+
+```{r variation participants}
+nombreDeClasseParAn <- stats_globales(data_participation, selectAnnee = "table")
+nombreDeClasseParAn$annee_scolaire <- as.character(nombreDeClasseParAn$annee_scolaire)
+nombreDeClasseParAn$labelsYears = label_years(nombreDeClasseParAn$annee_scolaire, retour = TRUE)
+
+graph_participation <- ggplot(nombreDeClasseParAn, aes(x = annee_scolaire, y = classes, group = 1)) +
+  geom_line(color = "#00CC33", size= 1) +
+  geom_point(color = "#00CC33", size = 2) +
+  geom_text(aes(label = classes), position = position_dodge(width = 1),
+            vjust = +2, size = 3)+
+  ylab("Nombre de classes \n participantes") +
+  xlab("Années") +
+  theme_minimal() +
+  theme(panel.grid.major = element_line(color = "#FFFFFF"), panel.grid.minor = element_blank(),
+        panel.background = element_blank(),
+        text = element_text(colour = "#314C4C")) +
+  expand_limits(y=0) +
+  scale_x_discrete(labels = nombreDeClasseParAn$labelsYears)
+
+graph_participation
+```
+
+## variation temporelle participations
+
+```{r variation observation}
+variable_focale = "observations"
+type_annee = "civile"
+type_annee = "scolaire"
+
+evolution <- stats_globales(data_participation, selectAnnee = "table", compter = variable_focale)
+evolution$annee_scolaire <- as.character(evolution$annee_scolaire)
+evolution$labelsYears = label_years(evolution$annee_scolaire, retour = TRUE)
+
+graph_participation <- ggplot(evolution, aes(x = annee_scolaire, y = get(variable_focale), group = 1)) +
+  geom_line(color = "#00CC33", size= 1) +
+  geom_point(color = "#00CC33", size = 2) +
+  geom_text(aes(label = get(variable_focale)), position = position_dodge(width = 1),
+            vjust = +2, size = 3)+
+  ylab("Nombre d'observations") +
+  xlab("Années") +
+  theme_minimal() +
+  theme(panel.grid.major = element_line(color = "#FFFFFF"), panel.grid.minor = element_blank(),
+        panel.background = element_blank(),
+        text = element_text(colour = "#314C4C")) +
+  expand_limits(y=0) +
+  scale_x_discrete(labels = evolution$labelsYears)
+
+graph_participation
+```
+
+## Cartographie
+
+
+```{r carto observations}
+library(leaflet)
+library(sf)
+
+data_participation <- data_participation[data_participation$latitude>1, ]
+# transformation en objet spatial (on explique quelles sont les colonnes)
+geo_participation<- st_as_sf(data_participation, coords = c("longitude", "latitude"))
+# choix de la projection (très important c'est tout un sujet en réalité)
+st_crs(geo_participation) <- 4326
+
+# add markers
+
+observation_map <- leaflet(geo_participation) %>%
+  addTiles()%>%
+  addMarkers(clusterOptions = markerClusterOptions())
+observation_map
+
+
+```
+
+# Variation temporelle intra-annuelle

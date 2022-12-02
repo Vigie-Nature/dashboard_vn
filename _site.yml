@@ -1,0 +1,20 @@
+name: "Dashboard Vigie-Nature"
+navbar:
+  title: ""
+  left:
+    - text: "Statistiques globales"
+      href: index.html
+    - text: "Vigie-Nature École"
+      icon: fa-school
+      menu:
+        - text: "Statistiques globales"
+          href: vne_global.html
+        - text: "---------"
+        - text: "Protocoles"
+        - text: "Oiseaux des jardins"
+          href: vne_oiseaux.html
+        - text: "Escargot"
+          href: vne_escargot.html
+  right:
+  - icon: fa-question fa-lg
+    href: help.html

@@ -1,0 +1,10 @@
+---
+title: "Statistiques globales"
+---
+
+Les sciences participatives c'est vraiment super !
+
+```{r}
+plot(1)
+```
+
