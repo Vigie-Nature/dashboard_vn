@@ -69,7 +69,7 @@ navbar:
       icon: fa-crow
       menu:
         - text: "Vigie-Chiro"
-          href: vigie-Chiro_all.html
+          href: Vigie-Chiro_all.html
         - text: "---------"
         - text: "Protocoles"
         - text: "Point-fixe"
