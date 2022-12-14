@@ -1,18 +1,24 @@
 ---
+params:
+  data_set:
+  observatory_name:
+  protocol_names:
 title: "Statistiques globales"
+output:
+  html_document:
+   includes:
+      before_body: nav_bar.html
 ---
-
+  
 ```{r setup, include=FALSE} 
 knitr::opts_chunk$set(warning = FALSE, message = FALSE, echo = FALSE) 
 
 ```
 
 ```{r import data}
-#import functions
-source("fonctions/functions_restitution.R")
-# import data
-data_participation <- data.table::fread("data/data_vn.csv")
-annee_actuelle <- lubridate::year(Sys.time())
+
+# get data
+data_participation <- params$data_set
 ```
 
 #### Chiffres clés

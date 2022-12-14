@@ -4,22 +4,44 @@ navbar:
   left:
     - text: "Statistiques globales"
       href: index.html
-    - text: "OAB"
+    - text: "Observatoire agricole de la biodiversité"
       icon: fa-leaf 
       menu:
-        - text: "Statistiques globales"
-          href: vne_global.html
+        - text: "Statistiques globales OAB"
+          href: oab_all.html
         - text: "---------"
         - text: "Protocoles"
-        - text: "Oiseaux des jardins"
-          href: vne_oiseaux.html
-        - text: "Escargot"
-          href: vne_escargot.html
+        - text: "Nichoir"
+          href: oab_nichoir.html
+        - text: "Planche"
+          href: oab_planche.html
+        - text: "Transect"
+          href: oab_transect.html
+        - text: "Placette"
+          href: oab_placette.html
+    - text: "Réseau ENI"
+      icon: fa-leaf 
+      menu:
+        - text: "Statistiques globales ENI"
+          href: ENI_all.html
+        - text: "---------"
+        - text: "Protocoles"
+        - text: "oiseaux"
+          href: ENI_Oiseau.html
+        - text: "coleopteres"
+          href: ENI_coleoptères.html
+        - text: "flore"
+          href: ENI_flore.html
+        - text: "versdeterre-moutarde"
+          href: ENI_versdeterre-moutarde.html
+        - text: "versdeterre-beche"
+          href: ENI_versdeterre-beche.html
+          
     - text: "Vigie-Nature École"
       icon: fa-school
       menu:
         - text: "Statistiques globales"
-          href: vne_global.html
+          href: vne_all.html
         - text: "---------"
         - text: "Protocoles"
         - text: "Oiseaux des jardins"
@@ -29,26 +51,36 @@ navbar:
     - text: "Grand public"
       icon: fa-dove
       menu:
+        - text: "ALAMER"
+          href: plages_all.html
+        - text: "Spipoll"
+          href: spipoll_all.html
+    - text: "Gestionnaires"
+      icon: fa-leaf
+      menu:
         - text: "Statistiques globales"
-          href: vne_global.html
+          href: gestionnaires_all.html
         - text: "---------"
-        - text: "Protocoles"
-        - text: "Oiseaux des jardins"
-          href: vne_oiseaux.html
-        - text: "Escargot"
-          href: vne_escargot.html
+        - text: "Florilège"
+          href: gestionnaires_florileges.html
+        - text: "Propage"
+          href: gestionnaires_propage.html
     - text: "Naturalistes"
       icon: fa-crow
       menu:
-        - text: "Statistiques globales"
-          href: vne_global.html
+        - text: "Vigie-Chiro"
+          href: vigie-Chiro_all.html
         - text: "---------"
         - text: "Protocoles"
-        - text: "Vigie-Chiro"
-          icon: fa-bat
-          href: chiro.html
-        - text: "Escargot"
-          href: vne_escargot.html
+        - text: "Point-fixe"
+          href: Vigie-Chiro_point_fixe.html
+        - text: "Routier"
+          href: Vigie-Chiro_routier.html
+        - text: "Pedestre"
+          href: Vigie-Chiro_pedestre.html
+        - text: "---------"
+        - text: "Vigie-Flore"
+          href: Vigie_flore_all.html
   right:
   - icon: fa-question fa-lg
     href: help.html
