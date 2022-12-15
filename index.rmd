@@ -95,9 +95,9 @@ graph + theme_text_size
 ```
 
 
-## Tendances Régionales
+## Tendances Régionales (bientôt)
 
 ```{r}
-benchmark_regions(data_participation, CoucheRegion = "./data/maps/region_shp/contours-geographiques-des-nouvelles-regions-metropole.shp")
+#benchmark_regions(data_participation, CoucheRegion = "./data/maps/region_shp/contours-geographiques-des-nouvelles-regions-metropole.shp")
 ```
 
