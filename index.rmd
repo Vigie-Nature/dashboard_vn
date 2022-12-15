@@ -15,14 +15,14 @@ data_participation <- data.table::fread("data/data_vn.csv")
 annee_actuelle <- lubridate::year(Sys.time())
 ```
 
-#### Chiffres clés
+## Chiffres clés
 
 - Nombre total participants : `r stats_globales(data_participation, compter = "participants")`
 - Nombre total participants cette année : `r stats_globales(data_participation, compter = "participants", select_annee = annee_actuelle)`
 - Nombre total de participations : `r stats_globales(data_participation, compter = "observations")`
 - Nombre total de participations cette année : `r stats_globales(data_participation, compter = "observations", select_annee = annee_actuelle)`
 
-#### Informations sur les inscriptions
+## Informations sur les inscriptions
 
 Un peu de blabla pour expliquer peut-être. Nouveaux utilisateurs en fonction de leur première participation sur la période étudiée.
 
@@ -38,7 +38,7 @@ graph_new_users(data_participation)
 
 ```
 
-#### variation temporelle du nombre de participants
+## variation temporelle du nombre de participants
 
 Attention, cette représentation ne prend pas en compte les classes participant à **Vigie-Chiro** (15 à 25) et **BirdLab** (non déterminé)
 
@@ -48,7 +48,7 @@ graph_evolution(data_participation, variable_focale = "participants")
 
 ```
 
-#### variation temporelle participations
+## variation temporelle participations
 
 ```{r variation observation}
 
@@ -57,10 +57,9 @@ graph_evolution(data_participation, variable_focale = "observations")
 
 ```
 
-#### Cartographie
+## Cartographie
 
-Un exemple de carte dynamique
-
+### Pour connaitre précisement les lieux des participations
 
 ```{r dynamic carto observations}
 
@@ -76,7 +75,7 @@ carte_dynamique(geo_participation)
 
 ```
 
-Exemples de cartes statiques
+### Pour connaitre l'échantillonnage
 
 ```{r static carto observations}
 # Make static map
@@ -86,12 +85,19 @@ carte_statique(geo_participation)
 ```
 
 
-##### Variation temporelle intra-annuelle
+## Variation temporelle intra-annuelle
 
 
 ```{r}
 graph <- graph_participation_par_mois(data_participation, annee_focale = annee_actuelle)
 
 graph + theme_text_size 
+```
+
+
+## Tendances Régionales
+
+```{r}
+benchmark_regions(data_participation, CoucheRegion = "./data/maps/region_shp/contours-geographiques-des-nouvelles-regions-metropole.shp")
 ```
 

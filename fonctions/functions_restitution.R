@@ -60,7 +60,7 @@ stats_globales <- function(df, compter = "participants", select_observatoire = "
     result
   } else if (compter == "eleves") {
     result <- df %>%
-      select(c(variable_a_compter, group, "effectifs")) %>%
+      dplyr::select(c(variable_a_compter, group, "effectifs")) %>%
       distinct() %>%
       drop_na() %>%
       group_by_at(c(group)) %>%
@@ -71,7 +71,7 @@ stats_globales <- function(df, compter = "participants", select_observatoire = "
   } else {
     result <- df %>%
       group_by_at(all_of(group)) %>%
-      select(all_of(variable_a_compter)) %>%
+      dplyr::select(all_of(variable_a_compter)) %>%
       distinct()%>%
       drop_na() %>%
       summarise(nombre = n())
@@ -195,7 +195,7 @@ graph_participation_par_mois <- function (df, annee_focale = FALSE, select_proto
   
   obs <- df %>%
     filter(annee_participation != annee_focale)%>%
-    select(mois_participation, annee_participation, participation_id)%>%
+    dplyr::select(mois_participation, annee_participation, participation_id)%>%
     distinct()%>%
     group_by(mois_participation, annee_participation)%>%
     summarise(NombreObservations = n())
@@ -209,7 +209,7 @@ graph_participation_par_mois <- function (df, annee_focale = FALSE, select_proto
     
     obsAnnee <- df %>%
       filter(annee_participation == annee_focale) %>%
-      select(mois_participation, annee_participation, participation_id)%>%
+      dplyr::select(mois_participation, annee_participation, participation_id)%>%
       distinct()%>%
       group_by(mois_participation) %>%
       summarise(NombreObservations = n())
@@ -253,7 +253,7 @@ graph_new_users <- function(data_participation) {
   
   # get table of users per period
   new_users <- data_participation %>%
-    select(user_id, annee_participation) %>%
+    dplyr::select(user_id, annee_participation) %>%
     distinct() %>%
     arrange(annee_participation) %>%
     data.table::setDF()
@@ -365,10 +365,11 @@ count_values_within <- function(geo_data,
                                 geo_shape, 
                                 remove_empty = FALSE, 
                                 value_name = "ocurrence",
-                                max_size = 50000) {
+                                max_size = 30000) {
   
   if (nrow(geo_data) > max_size){
     for (i in 1:floor(nrow(geo_data)/max_size)){
+      cat(i,'/',floor(nrow(geo_data)/max_size))
       subset <- geo_data[(1 + (i-1)*max_size):(max_size*i), ]
       
       # get the nomber of lines that are within each shape
@@ -384,6 +385,7 @@ count_values_within <- function(geo_data,
       } else {
         full_layer <- subset_layer
       }
+      gc()
     }
     
     if (nrow(geo_data) %% max_size > 0){

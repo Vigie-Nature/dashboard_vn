@@ -1,5 +1,6 @@
 #import functions
 source("fonctions/functions_restitution.R")
+source("fonctions/functions_benchmark_regions.R")
 
 rmarkdown::render_site()
 
@@ -10,11 +11,13 @@ annee_actuelle <- lubridate::year(Sys.time())
 
 pages <- data.frame(observatory = c("oab", "oab",      "oab"     , "oab"    , "oab", 
                                     "ENI", "ENI", "ENI", "ENI", "ENI", "ENI", 
+                                    "VNE", "VNE", "VNE", "VNE", "VNE", "VNE", "VNE", "VNE", "VNE", "VNE",
                                     "gestionnaires", "gestionnaires", "gestionnaires",
                                     "Vigie-Chiro", "Vigie-Chiro", "Vigie-Chiro", "Vigie-Chiro",
                                     "spipoll", "plages", "Vigie-flore"),
                     protocol =    c("all", "nichoir", "placette", "planche", "transect", 
                                     "all", "Coléoptère", "Flore", "Oiseau", "Vers de terre - BECHE", "Vers de terre - MOUTARDE",
+                                    "all", "ALAMER", "Biolit", "Escargots des Jardins (Inventaire)", "Lichen Go", "Observatoire des Vers de Terre", "Oiseaux des Jardins", "Opération escargots", "Sauvages de ma rue", "SPIPOLL",
                                     "all", "Florilèges", "Propage",
                                     "all", "PEDESTRE", "POINT_FIXE", "ROUTIER",
                                     "all",     "all",    "all"))

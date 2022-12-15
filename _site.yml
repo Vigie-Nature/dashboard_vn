@@ -4,7 +4,7 @@ navbar:
   left:
     - text: "Statistiques globales"
       href: index.html
-    - text: "Observatoire agricole de la biodiversité"
+    - text: "OAB"
       icon: fa-leaf 
       menu:
         - text: "Statistiques globales OAB"
@@ -26,28 +26,43 @@ navbar:
           href: ENI_all.html
         - text: "---------"
         - text: "Protocoles"
-        - text: "oiseaux"
-          href: ENI_Oiseau.html
-        - text: "coleopteres"
-          href: ENI_coleoptères.html
-        - text: "flore"
+        - text: "Oiseaux"
+          href: ENI_oiseau.html
+        - text: "Coléoptère"
+          href: ENI_coleoptere.html
+        - text: "Flore"
           href: ENI_flore.html
-        - text: "versdeterre-moutarde"
+        - text: "Vers de terre - moutarde"
           href: ENI_versdeterre-moutarde.html
-        - text: "versdeterre-beche"
+        - text: "Vers de terre - bèche"
           href: ENI_versdeterre-beche.html
           
     - text: "Vigie-Nature École"
       icon: fa-school
       menu:
         - text: "Statistiques globales"
-          href: vne_all.html
+          href: VNE_all.html
         - text: "---------"
         - text: "Protocoles"
         - text: "Oiseaux des jardins"
-          href: vne_oiseaux.html
-        - text: "Escargot"
-          href: vne_escargot.html
+          href: VNE_oiseauxdesjardins.html
+        - text: "Opération Escargot"
+          href: VNE_operationescargots.html
+        - text: "Opération Escargot (inventaire)"
+          href: VNE_escargotsdesjardins(inventaire).html
+        - text: "Sauvages de ma rue"
+          href: VNE_sauvagesdemarue.html
+        - text: "Biolit Junior"
+          href: VNE_biolit.html
+        - text: "ALAMER"
+          href: VNE_alamer.html
+        - text: "Lichen GO!"
+          href: VNE_lichengo.html
+        - text: "Placettes à vers de terre"
+          href: VNE_observatoiredesversdeterre.html
+        - text: "Spipoll"
+          href: VNE_spipoll.html
+          
     - text: "Grand public"
       icon: fa-dove
       menu:
