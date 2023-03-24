@@ -157,6 +157,6 @@ if(test){
   for (i in 1:length(unique(AllData$observatoire))){
     print(unique(AllData$observatoire)[i])
     data_participation=subset(AllData,AllData$observatoire==unique(AllData$observatoire)[i])
-    benchmark_regions(data_participation,FileRegion)  
+    benchmark_regions(data_participation,CoucheRegion = FileRegion)  
   }    
 }

@@ -9,7 +9,7 @@ output:
    includes:
       before_body: nav_bar.html
 ---
-  
+
 ```{r setup, include=FALSE} 
 knitr::opts_chunk$set(warning = FALSE, message = FALSE, echo = FALSE) 
 
@@ -30,7 +30,6 @@ data_participation <- params$data_set
 
 ## Informations sur les inscriptions
 
-Un peu de blabla pour expliquer peut-être. Nouveaux utilisateurs en fonction de leur première participation sur la période étudiée.
 
 ```{r new users data}
 #calculate new users
@@ -45,8 +44,6 @@ graph_new_users(data_participation)
 ```
 
 ## variation temporelle du nombre de participants
-
-Attention, cette représentation ne prend pas en compte les classes participant à **Vigie-Chiro** (15 à 25) et **BirdLab** (non déterminé)
 
 ```{r variation participants}
 graph_evolution(data_participation, variable_focale = "participants")
@@ -104,6 +101,10 @@ graph + theme_text_size
 ## Tendances Régionales (bientôt)
 
 ```{r}
-#benchmark_regions(data_participation, CoucheRegion = "./data/maps/region_shp/contours-geographiques-des-nouvelles-regions-metropole.shp")
+if (min(data_participation$annee_participation) < 2017){
+  benchmark_regions(data_participation, CoucheRegion = "../data/maps/region_shp/contours-geographiques-des-nouvelles-regions-metropole.shp")
+}
 ```
 
+
+Cette page a été mise à jour le `r Sys.time()`

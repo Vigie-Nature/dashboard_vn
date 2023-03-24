@@ -24,8 +24,6 @@ annee_actuelle <- lubridate::year(Sys.time())
 
 ## Informations sur les inscriptions
 
-Un peu de blabla pour expliquer peut-être. Nouveaux utilisateurs en fonction de leur première participation sur la période étudiée.
-
 ```{r new users data}
 #calculate new users
 # remove NA
@@ -40,7 +38,6 @@ graph_new_users(data_participation)
 
 ## variation temporelle du nombre de participants
 
-Attention, cette représentation ne prend pas en compte les classes participant à **Vigie-Chiro** (15 à 25) et **BirdLab** (non déterminé)
 
 ```{r variation participants}
 graph_evolution(data_participation, variable_focale = "participants")
@@ -95,9 +92,11 @@ graph + theme_text_size
 ```
 
 
-## Tendances Régionales (bientôt)
+## Tendances Régionales
 
 ```{r}
-#benchmark_regions(data_participation, CoucheRegion = "./data/maps/region_shp/contours-geographiques-des-nouvelles-regions-metropole.shp")
+benchmark_regions(data_participation, CoucheRegion = "./data/maps/region_shp/contours-geographiques-des-nouvelles-regions-metropole.shp")
 ```
 
+
+Cette page a été mise à jour le `r Sys.time()`

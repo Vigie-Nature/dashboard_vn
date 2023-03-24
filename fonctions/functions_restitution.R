@@ -369,7 +369,7 @@ count_values_within <- function(geo_data,
   
   if (nrow(geo_data) > max_size){
     for (i in 1:floor(nrow(geo_data)/max_size)){
-      cat(i,'/',floor(nrow(geo_data)/max_size))
+      cat(i,'/',floor(nrow(geo_data)/max_size), "\n")
       subset <- geo_data[(1 + (i-1)*max_size):(max_size*i), ]
       
       # get the nomber of lines that are within each shape

@@ -95,7 +95,7 @@ navbar:
           href: Vigie-Chiro_pedestre.html
         - text: "---------"
         - text: "Vigie-Flore"
-          href: Vigie_flore_all.html
+          href: Vigie-flore_all.html
   right:
   - icon: fa-question fa-lg
     href: help.html
